@@ -1,16 +1,16 @@
 import { Animes } from '@/interfaces/animes'
-import CardAnime from './components/CardAnime'
+import CardAnime from '@/components/characters/CardAnime'
 
 const getAnimes = async () => {
-  const data = await fetch('https://api.jikan.moe/v4/anime')
-  const res = (await data.json()) as Animes
+  const res = await fetch('https://api.jikan.moe/v4/anime')
+  const data = (await res.json()) as Animes
 
-  if (!data.ok) {
+  if (!res.ok) {
     throw new Error('Failed to fetch data')
   }
 
   // throw new Error('Failed to fetch data. Try Again')
-  return res
+  return data
 }
 
 export default async function Home() {
@@ -18,7 +18,6 @@ export default async function Home() {
 
   return (
     <main>
-      <h1>Animes</h1>
       <ul>
         {animes.data.map((item) => (
           <CardAnime key={item.mal_id} item={item} />

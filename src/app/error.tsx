@@ -2,14 +2,13 @@
 import React from 'react'
 
 interface Props {
-  error: Error & { digest?: string }
   reset: () => void
 }
 
-export default function Error({ error, reset }: Props) {
+export default function Error({ reset }: Props) {
   return (
     <div>
-      <h1>Ups! {error.message}</h1>
+      <h1>Ups! An ocurred one error. Try again.</h1>
       <button onClick={() => reset()}>Reset</button>
     </div>
   )
