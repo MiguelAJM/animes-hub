@@ -1,19 +1,8 @@
-import { Characters } from '@/interfaces/characters'
+import { getCharacters } from '@/utils/services/getAnimes'
 import Image from 'next/image'
 
 interface Props {
   id: number
-}
-
-const getCharacters = async (id: number) => {
-  const res = await fetch(`https://api.jikan.moe/v4/anime/${id}/characters`)
-  const data = (await res.json()) as Characters
-
-  if (!res.ok) {
-    throw new Error('Failed to fetch data')
-  }
-
-  return data
 }
 
 export default async function CardCharacters({ id }: Props) {
@@ -23,9 +12,9 @@ export default async function CardCharacters({ id }: Props) {
     <div>
       <h2>Characters</h2>
       <br />
-      <ul>
+      <ul className='grid grid-cols-6'>
         {characters.data.map((item) => (
-          <li key={item.character.mal_id}>
+          <li className='col-span-1' key={item.character.mal_id}>
             <h2> {item.character.name} </h2>
             <Image
               src={item.character.images.jpg.image_url}

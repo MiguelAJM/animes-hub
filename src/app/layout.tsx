@@ -2,6 +2,8 @@ import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import './globals.css'
 import Link from 'next/link'
+import Navbar from '@/components/Navbar'
+import { Toaster } from 'sonner'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -18,7 +20,11 @@ export default function RootLayout({
   return (
     <html lang='en'>
       <body className={inter.className}>
-        <Link href={'/'}>AnimeHub</Link>
+        <Toaster position='top-center' richColors />
+        <header>
+          <Link href={'/'}>AnimeHub</Link>
+          <Navbar />
+        </header>
         {children}
       </body>
     </html>

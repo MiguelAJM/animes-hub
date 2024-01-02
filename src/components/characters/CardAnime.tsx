@@ -7,14 +7,15 @@ interface Props {
 }
 
 export default function CardAnime({ item }: Props) {
+  const { title, images, mal_id } = item
   return (
     <div>
-      <h2>{item.title}</h2>
-      <Link href={`/anime/${item.mal_id}`}>
+      <h2>{title}</h2>
+      <Link href={`/anime/${mal_id}`}>
         <Image
           className='size-64 object-cover'
-          src={item.images.jpg.large_image_url}
-          alt={item.title}
+          src={images.jpg.large_image_url}
+          alt={title}
           width={128}
           height={128}
         />
