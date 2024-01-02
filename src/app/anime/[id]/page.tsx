@@ -1,7 +1,8 @@
 import { Suspense } from 'react'
 import { getAnimesById } from '@/utils/services/getAnimes'
-import CardCharacters from '@/components/characters/CardCharacters'
 import Image from 'next/image'
+import CardCharacters from '@/components/characters/CardCharacters'
+import ButtonFavAnime from '@/components/anime/ButtonFavAnime'
 
 interface Props {
   params: { id: string }
@@ -32,6 +33,10 @@ export default async function AnimePage({ params }: Props) {
           <p>{synopsis}</p>
         </article>
 
+        <article>
+          <ButtonFavAnime data={data} id={id} />
+        </article>
+
         <figure>
           <Image
             src={images.jpg.large_image_url}
@@ -47,7 +52,7 @@ export default async function AnimePage({ params }: Props) {
           <iframe
             title={title}
             src={trailer.embed_url}
-            allow='autoplay'
+            // allow='autoplay'
             allowFullScreen
           />
         ) : (

@@ -10,8 +10,6 @@ export default function Navbar() {
 
   const regex = /[!@#$%^&*()_+={}\[\]:;<>,.?~\\/\- ]/g
   const title = anime.replace(regex, '-').toLowerCase()
-  
-  console.log(title)
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) =>
     setAnime(e.target.value)

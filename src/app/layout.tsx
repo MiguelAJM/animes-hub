@@ -23,6 +23,7 @@ export default function RootLayout({
         <Toaster position='top-center' richColors />
         <header>
           <Link href={'/'}>AnimeHub</Link>
+          <Link href={'/favorites'}>Favorites</Link>
           <Navbar />
         </header>
         {children}

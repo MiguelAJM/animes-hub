@@ -17,6 +17,7 @@ export default async function CardCharacters({ id }: Props) {
           <li className='col-span-1' key={item.character.mal_id}>
             <h2> {item.character.name} </h2>
             <Image
+              className='aspect-square object-cover'
               src={item.character.images.jpg.image_url}
               alt={item.character.name}
               width={128}
