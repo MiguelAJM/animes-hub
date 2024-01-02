@@ -24,6 +24,7 @@ export default function Navbar() {
       return toast.error('Please, type name anime')
     }
     router.push(`/search/${title}`)
+    setAnime('')
   }
 
   return (
