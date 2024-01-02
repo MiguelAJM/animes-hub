@@ -2,6 +2,7 @@
 import { Data } from '@/interfaces/animes'
 import { useFavAnimesStore } from '@/utils/store/favAnimesStore'
 import useStore from '@/utils/hooks/useStore'
+import { IconHeart, IconHeartFilled } from '@tabler/icons-react'
 
 interface Props {
   data: Data
@@ -10,8 +11,6 @@ interface Props {
 
 export default function ButtonFavAnime({ data, id }: Props) {
   const animeID = Number(id)
-
-  // const favAnimes = useFavAnimesStore((state) => state.favAnimes)
 
   const favAnimes = useStore(useFavAnimesStore, (state) => state.favAnimes)
 
@@ -26,14 +25,21 @@ export default function ButtonFavAnime({ data, id }: Props) {
 
   const isFavAnime = checkFavAnime()
 
+  const toggleFavAnime = () => {
+    if (isFavAnime === true) {
+      return delFavAnime(animeID)
+    }
+    if (isFavAnime === false) {
+      return addFavAnime(data)
+    }
+  }
+
   return (
     <button
-      onClick={
-        !isFavAnime ? () => addFavAnime(data) : () => delFavAnime(animeID)
-      }
-      className='my-5 p-4 bg-blue-500 rounded-xl'
+      onClick={toggleFavAnime}
+      className='p-4 bg-light text-darkest rounded-xl'
     >
-      {!isFavAnime ? 'Add favorite anime' : 'Delete favorite anime'}
+      {!isFavAnime ? <IconHeart className='text-red-600' size={32} /> : <IconHeartFilled className='text-red-600' size={32} />}
     </button>
   )
 }

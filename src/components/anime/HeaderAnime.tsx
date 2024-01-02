@@ -1,10 +1,12 @@
 'use client'
 
+import NavAnime from './NavAnime'
+import { IconSearch } from '@tabler/icons-react'
 import { useRouter } from 'next/navigation'
 import { useState } from 'react'
 import { toast } from 'sonner'
 
-export default function Navbar() {
+export default function HeaderAnime() {
   const [anime, setAnime] = useState('')
   const router = useRouter()
 
@@ -26,16 +28,24 @@ export default function Navbar() {
   }
 
   return (
-    <header>
-      <form onSubmit={handleSearch}>
+    <header className='flex flex-col gap-8 w-full z-20'>
+      <form
+        className='flex items-center gap-4 px-5 w-full rounded-full bg-lightest dark:bg-dark'
+        onSubmit={handleSearch}
+      >
+        <label htmlFor='search-input'>
+          <IconSearch size={32} />
+        </label>
         <input
-          className='text-black'
+          className='bg-transparent py-4 dark:text-lightest w-full outline-none'
           type='text'
+          id='search-input'
           placeholder='Search a anime'
           value={anime}
           onChange={handleChange}
         />
       </form>
+      <NavAnime title='Anime Hub' />
     </header>
   )
 }

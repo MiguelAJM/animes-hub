@@ -1,5 +1,6 @@
 import { getCharacters } from '@/utils/services/getAnimes'
-import Image from 'next/image'
+import CharactersAnime from '../anime/CharactersAnime'
+import Alert from '../elements/Altert'
 
 interface Props {
   id: number
@@ -7,25 +8,21 @@ interface Props {
 
 export default async function CardCharacters({ id }: Props) {
   const characters = await getCharacters(id)
+  const { data } = characters
+  const EMPTY_CHARACTERS = 0
 
   return (
-    <div>
-      <h2>Characters</h2>
-      <br />
-      <ul className='grid grid-cols-6'>
-        {characters.data.map((item) => (
-          <li className='col-span-1' key={item.character.mal_id}>
-            <h2> {item.character.name} </h2>
-            <Image
-              className='aspect-square object-cover'
-              src={item.character.images.jpg.image_url}
-              alt={item.character.name}
-              width={128}
-              height={128}
-            />
-          </li>
-        ))}
-      </ul>
-    </div>
+    <>
+      <h2 className='text-5xl font-light mb-4'>
+        <span className='line-clamp-1'>Characters</span>
+      </h2>
+
+      {data.length === EMPTY_CHARACTERS && (
+        <Alert description='No characters available' />
+      )}
+      {data.length > EMPTY_CHARACTERS && (
+        <CharactersAnime characters={characters} />
+      )}
+    </>
   )
 }
