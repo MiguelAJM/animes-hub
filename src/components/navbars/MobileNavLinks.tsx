@@ -1,4 +1,5 @@
 'use client'
+import { toggleSearchStore } from '@/utils/store/toggleSearchStore'
 import {
   IconCategory,
   IconHeartFilled,
@@ -11,6 +12,7 @@ import { usePathname } from 'next/navigation'
 
 export default function MobileNavLinks() {
   const pathname = usePathname()
+  const changeMenuState = toggleSearchStore((state) => state.toggleSearch)
 
   return (
     <ul className='flex justify-between items-center h-full w-full gap-2 px-4'>
@@ -36,7 +38,10 @@ export default function MobileNavLinks() {
           <IconCategory />
         </Link>
       </li>
-      <li className='bg-darkest text-lightest p-2 rounded-xl'>
+      <li
+        onClick={changeMenuState}
+        className='bg-darkest text-lightest p-2 rounded-xl'
+      >
         <IconSearch />
       </li>
       <li
