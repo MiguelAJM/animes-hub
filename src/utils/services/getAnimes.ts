@@ -52,7 +52,7 @@ export const getCharacters = async (id: number) => {
 // Para buscar el anime
 export const searchAnimes = async (name: string) => {
   const SEARCH_CHARACTER_URL = `https://api.jikan.moe/v4/anime?q=${name}`
-  const QUERY_PARAMS = `&sfw&limit=24&type=tv&order_by=title`
+  const QUERY_PARAMS = `&sfw&limit=24&type=tv&order_by=title&start_date=2015-01-01`
 
   const res = await fetch(`${SEARCH_CHARACTER_URL}${QUERY_PARAMS}`)
   const data = (await res.json()) as Animes
