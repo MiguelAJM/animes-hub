@@ -18,7 +18,7 @@ export default function AnimeFavorites() {
             {favAnimes.length === ITEMS && (
               <article className='absolute w-full h-full grid place-content-center'>
                 <h2 className='text-6xl font-bold'>
-                  There are no animes for this genre.
+                  Your favorites list are empty.
                 </h2>
               </article>
             )}

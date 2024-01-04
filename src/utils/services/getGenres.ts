@@ -1,6 +1,7 @@
 import { Animes } from '@/interfaces/animes'
 import { Genres } from '@/interfaces/genres'
 
+// <------------------>
 // Para obtener todos los generos
 export const getGenres = async () => {
   const GENRES = 'https://api.jikan.moe/v4/genres/anime'
@@ -14,6 +15,7 @@ export const getGenres = async () => {
   return data
 }
 
+// <------------------>
 // Para obtener todos los generos por ID
 export const getGenresId = async (id: string) => {
   const GENRES = 'https://api.jikan.moe/v4/anime?'

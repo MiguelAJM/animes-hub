@@ -64,6 +64,7 @@ export const searchAnimes = async (name: string) => {
   return data
 }
 
+// <------------------>
 // Para obtener el anime segun el estado (airing, upcoming, complete)
 export const statusAnimes = async (status: string) => {
   const STATUS_ANIMES_URL = 'https://api.jikan.moe/v4/anime?'
