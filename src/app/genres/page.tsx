@@ -2,18 +2,19 @@ import { IconCategory } from '@tabler/icons-react'
 import { getGenres } from '@/utils/services/getGenres'
 import Wrapper from '@/components/Wrapper'
 import CardGenres from '@/components/genres/CardGenres'
+import MainTitleAnime from '@/components/anime/MainTitleAnime'
 
 export default async function page() {
   const genres = await getGenres()
 
   return (
     <Wrapper>
-      <article className='flex items-center gap-4'>
-        <span className='text-lime-500'>
-          <IconCategory size={32} />
-        </span>
-        <h2 className='text-4xl font-bold'>Genres</h2>
-      </article>
+      <MainTitleAnime
+        title='Genres'
+        IconTitle={<IconCategory size={32} />}
+        iconColor='text-lime-500'
+        button={false}
+      />
 
       <ul className='grid grid-cols-6 gap-2 md:gap-4'>
         {genres.data.map((item) => (

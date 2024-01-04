@@ -11,9 +11,9 @@ export default async function MoviesAnime() {
   return (
     <Wrapper>
       <MainTitleAnime
-        title='Animes'
+        title='Movies'
         IconTitle={<IconPlayerPlay size={32} />}
-        iconColor='text-magenta-500'
+        iconColor='text-red-500'
         button={false}
       />
       <ul className='grid grid-cols-6 gap-4'>
