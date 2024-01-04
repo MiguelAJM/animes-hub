@@ -1,9 +1,9 @@
 import type { Metadata } from 'next'
 import { Lato } from 'next/font/google'
 import { Toaster } from 'sonner'
-import './globals.css'
 import FooterAnime from '@/components/anime/FooterAnime'
-import Sidebar from '@/components/navs/Sidebar'
+import './globals.css'
+import Sidebar from '@/components/navbars/Sidebar'
 
 const lato = Lato({ subsets: ['latin'], weight: ['300', '400', '700', '900'] })
 
