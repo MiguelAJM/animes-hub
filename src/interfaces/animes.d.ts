@@ -92,6 +92,7 @@ export interface Trailer {
 }
 
 export interface Pagination {
+    current_page:      number;
     last_visible_page: number;
     has_next_page:     boolean;
     items:             Items;

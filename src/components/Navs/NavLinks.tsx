@@ -8,7 +8,7 @@ export default function NavLinks() {
 
   const links = [
     { url: '/', name: 'Home', icon: IconHome },
-    { url: '/gernes', name: 'Genres', icon: IconCategory },
+    { url: '/genres', name: 'Genres', icon: IconCategory },
     { url: '/favorites', name: 'Favorites', icon: IconHeart }
   ]
 
@@ -19,7 +19,7 @@ export default function NavLinks() {
           pathname === item.url
             ? 'bg-light text-darkest'
             : 'bg-darkest text-lightest'
-        } p-3 rounded-full`} key={item.name} href={item.url}>
+        } p-3 rounded-xl`} key={item.name} href={item.url}>
           <item.icon size={24} />
         </Link>
       ))}

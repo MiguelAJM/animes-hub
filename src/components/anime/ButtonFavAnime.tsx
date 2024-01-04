@@ -3,14 +3,15 @@ import { Data } from '@/interfaces/animes'
 import { useFavAnimesStore } from '@/utils/store/favAnimesStore'
 import useStore from '@/utils/hooks/useStore'
 import { IconHeart, IconHeartFilled } from '@tabler/icons-react'
+import { toast } from 'sonner'
 
 interface Props {
-  data: Data
+  anime: Data
   id: string
 }
 
-export default function ButtonFavAnime({ data, id }: Props) {
-  const animeID = Number(id)
+export default function ButtonFavAnime({ anime, id }: Props) {
+  const animeId = Number(id)
 
   const favAnimes = useStore(useFavAnimesStore, (state) => state.favAnimes)
 
@@ -19,7 +20,7 @@ export default function ButtonFavAnime({ data, id }: Props) {
 
   const checkFavAnime = () => {
     if (favAnimes !== undefined) {
-      return favAnimes.some((item) => item.mal_id === animeID)
+      return favAnimes.some((item) => item.mal_id === animeId)
     }
   }
 
@@ -27,10 +28,12 @@ export default function ButtonFavAnime({ data, id }: Props) {
 
   const toggleFavAnime = () => {
     if (isFavAnime === true) {
-      return delFavAnime(animeID)
+      toast.info('Anime deleted the favorites')
+      return delFavAnime(animeId)
     }
     if (isFavAnime === false) {
-      return addFavAnime(data)
+      toast.info('Anime added the favorites')
+      return addFavAnime(anime)
     }
   }
 

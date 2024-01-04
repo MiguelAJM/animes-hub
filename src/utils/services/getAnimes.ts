@@ -2,16 +2,10 @@ import { Animes } from '@/interfaces/animes'
 import { AnimeByID } from '@/interfaces/animesById'
 import { Characters } from '@/interfaces/characters'
 
-const CONFIG = {
-  LIMIT: '24',
-  TYPE: 'tv',
-  ORDER_BY: 'popularity',
-  START_DATE: '2020-01-01'
-}
-
-export const getAnimes = async () => {
+// <------------------>
+export const getAnimes = async (page: string = '1') => {
   const ANIMES_URL = 'https://api.jikan.moe/v4/anime?'
-  const QUERY_PARAMS = `&sfw&limit=${CONFIG.LIMIT}&type=${CONFIG.TYPE}&order_by=${CONFIG.ORDER_BY}&start_date=${CONFIG.START_DATE}`
+  const QUERY_PARAMS = `&sfw&limit=24&type=tv&status=upcoming&page=${page}`
 
   const res = await fetch(`${ANIMES_URL}${QUERY_PARAMS}`)
   const data = (await res.json()) as Animes
@@ -20,10 +14,10 @@ export const getAnimes = async () => {
     throw new Error('Failed to fetch data')
   }
 
-  // throw new Error('Failed to fetch data. Try Again')
   return data
 }
 
+// <------------------>
 export const getAnimesById = async (id: string) => {
   const ANIME_BY_ID_URL = 'https://api.jikan.moe/v4/anime/'
 
@@ -34,11 +28,10 @@ export const getAnimesById = async (id: string) => {
     throw new Error('Failed to fetch data')
   }
 
-  // throw new Error('Failed to fetch data. Try Again')
   return data
 }
 
-// Obtener los personajes
+// <------------------>
 export const getCharacters = async (id: number) => {
   const ANIME_CHARACTER_URL = `https://api.jikan.moe/v4/anime/${id}/characters`
 
@@ -52,10 +45,10 @@ export const getCharacters = async (id: number) => {
   return data
 }
 
-// Buscar los animes
-export const searchAnimes = async (name: string) => {
+// <------------------>
+export const searchAnimes = async (name: string, page: string = '1') => {
   const SEARCH_CHARACTER_URL = `https://api.jikan.moe/v4/anime?q=${name}`
-  const QUERY_PARAMS = `&sfw&limit=${CONFIG.LIMIT}&type=${CONFIG.TYPE}&order_by=${CONFIG.ORDER_BY}`
+  const QUERY_PARAMS = `&sfw&limit=24&type=tv&order_by=title`
 
   const res = await fetch(`${SEARCH_CHARACTER_URL}${QUERY_PARAMS}`)
   const data = (await res.json()) as Animes
@@ -67,10 +60,10 @@ export const searchAnimes = async (name: string) => {
   return data
 }
 
-// Obtener los animes por estado
+// <------------------>
 export const statusAnimes = async (status: string) => {
   const STATUS_ANIMES_URL = 'https://api.jikan.moe/v4/anime?'
-  const QUERY_PARAMS = `&sfw&limit=${CONFIG.LIMIT}&type=${CONFIG.TYPE}&order_by=${CONFIG.ORDER_BY}&status=${status}`
+  const QUERY_PARAMS = `&sfw&limit=24&status=upcoming&order_by=popularity&status=${status}`
 
   const res = await fetch(`${STATUS_ANIMES_URL}${QUERY_PARAMS}`)
   const data = (await res.json()) as Animes
@@ -79,6 +72,5 @@ export const statusAnimes = async (status: string) => {
     throw new Error('Failed to fetch data')
   }
 
-  // throw new Error('Failed to fetch data. Try Again')
   return data
 }

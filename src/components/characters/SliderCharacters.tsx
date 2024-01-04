@@ -12,7 +12,7 @@ interface Props {
   characters: Characters
 }
 
-export default function CharactersAnime({ characters }: Props) {
+export default function SliderCharacters({ characters }: Props) {
   const { data } = characters
 
   return (

@@ -1,21 +1,21 @@
 'use client'
 import { usePathname } from 'next/navigation'
-import Link from 'next/link'
 import { IconFlame } from '@tabler/icons-react'
+import Link from 'next/link'
 
 interface Props {
   title: string
 }
 
+const links = [
+  { url: '/anime/airing', name: 'Airing' },
+  { url: '/anime/complete', name: 'Complete' },
+  { url: '/anime/upcoming', name: 'Upcoming' }
+]
+
 export default function NavAnime({ title }: Props) {
   const resultAnime = title.replace('-', ' ')
   const pathname = usePathname()
-
-  const links = [
-    { url: '/anime/airing', name: 'Airing' },
-    { url: '/anime/complete', name: 'Complete' },
-    { url: '/anime/upcoming', name: 'Upcoming' }
-  ]
 
   return (
     <nav className='flex justify-between z-20'>
@@ -32,7 +32,7 @@ export default function NavAnime({ title }: Props) {
               pathname === item.url
                 ? 'bg-light text-darkest'
                 : 'bg-dark text-lightest'
-            } px-5 py-1 rounded-full`}
+            } px-5 py-1 rounded-xl`}
             key={index}
             href={item.url}
           >

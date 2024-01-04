@@ -1,5 +1,5 @@
 import { getCharacters } from '@/utils/services/getAnimes'
-import CharactersAnime from '../anime/CharactersAnime'
+import SliderCharacters from './SliderCharacters'
 import Alert from '../elements/Altert'
 
 interface Props {
@@ -9,6 +9,7 @@ interface Props {
 export default async function CardCharacters({ id }: Props) {
   const characters = await getCharacters(id)
   const { data } = characters
+
   const EMPTY_CHARACTERS = 0
 
   return (
@@ -21,7 +22,7 @@ export default async function CardCharacters({ id }: Props) {
         <Alert description='No characters available' />
       )}
       {data.length > EMPTY_CHARACTERS && (
-        <CharactersAnime characters={characters} />
+        <SliderCharacters characters={characters} />
       )}
     </>
   )

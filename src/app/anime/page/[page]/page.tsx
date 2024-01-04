@@ -1,11 +1,11 @@
 import { getAnimes } from '@/utils/services/getAnimes'
 import { IconList } from '@tabler/icons-react'
-import CardAnime from '@/components/characters/CardAnime'
 import Wrapper from '@/components/Wrapper'
 import ButtonPage from '@/components/elements/ButtonPage'
+import CardAnime from '@/components/characters/CardAnime'
 
-export default async function Home() {
-  const animes = await getAnimes()
+export default async function AnimePagination({ params }: { params: { page: string } }) {
+  const animes = await getAnimes(params.page)
   const { data } = animes
 
   return (

@@ -37,40 +37,38 @@ export default async function AnimePage({ params }: Props) {
 
   return (
     <Wrapper>
-      <div>
-        <article className='flex gap-8'>
-          <figure className='max-w-xs h-full rounded-xl overflow-hidden'>
-            <Image
-              className='w-full h-auto object-cover aspect-9/16'
-              src={images.jpg.large_image_url}
-              alt={title}
-              width={128}
-              height={128}
-            />
-          </figure>
+      <article className='flex gap-8'>
+        <figure className='max-w-xs h-full rounded-xl overflow-hidden'>
+          <Image
+            className='w-full h-auto object-cover aspect-9/16'
+            src={images.jpg.large_image_url}
+            alt={title}
+            width={128}
+            height={128}
+          />
+        </figure>
 
-          <div className='w-full'>
-            <div className='flex justify-between items-center'>
-              <h2 className='text-5xl font-light line-clamp-1 '>{title}</h2>
-              <ButtonFavAnime data={data} id={id} />
-            </div>
-            <Divider styles='my-8 border-white/20' />
-
-            <RatingAnime score={score} />
-            <InformationAnime
-              status={status}
-              duration={duration}
-              year={year}
-              rank={rank}
-              members={members}
-              popularity={popularity}
-            />
-
-            <Divider styles='my-8 border-white/20' />
-            <SynopsisAnime synopsis={synopsis} />
+        <div className='w-full'>
+          <div className='flex justify-between items-center'>
+            <h2 className='text-5xl font-light line-clamp-1 pb-1'>{title}</h2>
+            <ButtonFavAnime anime={data} id={id} />
           </div>
-        </article>
-      </div>
+          <Divider styles='my-8 border-white/20' />
+
+          <RatingAnime score={score} />
+          <InformationAnime
+            status={status}
+            duration={duration}
+            year={year}
+            rank={rank}
+            members={members}
+            popularity={popularity}
+          />
+
+          <Divider styles='my-8 border-white/20' />
+          <SynopsisAnime synopsis={synopsis} />
+        </div>
+      </article>
 
       <TrailerAnime trailer={trailer} />
 
