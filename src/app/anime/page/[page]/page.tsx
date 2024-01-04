@@ -15,18 +15,20 @@ export default async function AnimePagination({
 
   return (
     <Wrapper>
-      <MainTitleAnime
-        title='Animes'
-        IconTitle={<IconList size={24} />}
-        iconColor='text-yellow-500'
-        button={true}
-        pagination={<ButtonPage data={animes} />}
-      />
-      <ul className='grid grid-cols-6 gap-4'>
-        {data.map((item) => (
-          <CardAnime key={item.mal_id} item={item} />
-        ))}
-      </ul>
+      <div className='w-full min-h-[calc(100vh_-_332px)] md:min-h-[calc(100vh_-_380px)]  '>
+        <MainTitleAnime
+          title='Animes'
+          IconTitle={<IconList size={24} />}
+          iconColor='text-yellow-500'
+          button={true}
+          pagination={<ButtonPage data={animes} />}
+        />
+        <ul className='grid grid-cols-6 gap-4'>
+          {data.map((item) => (
+            <CardAnime key={item.mal_id} item={item} />
+          ))}
+        </ul>
+      </div>
     </Wrapper>
   )
 }
