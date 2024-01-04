@@ -3,9 +3,10 @@ import { AnimeByID } from '@/interfaces/animesById'
 import { Characters } from '@/interfaces/characters'
 
 // <------------------>
+// Para obtener los animes
 export const getAnimes = async (page: string = '1') => {
   const ANIMES_URL = 'https://api.jikan.moe/v4/anime?'
-  const QUERY_PARAMS = `&sfw&limit=24&type=tv&status=upcoming&page=${page}`
+  const QUERY_PARAMS = `&sfw&limit=24&type=tv&status=upcoming&start_date=2015-01-01&page=${page}`
 
   const res = await fetch(`${ANIMES_URL}${QUERY_PARAMS}`)
   const data = (await res.json()) as Animes
@@ -18,6 +19,7 @@ export const getAnimes = async (page: string = '1') => {
 }
 
 // <------------------>
+// Para obtener el anime por ID
 export const getAnimesById = async (id: string) => {
   const ANIME_BY_ID_URL = 'https://api.jikan.moe/v4/anime/'
 
@@ -32,6 +34,7 @@ export const getAnimesById = async (id: string) => {
 }
 
 // <------------------>
+// Para obtener los personajes del anime
 export const getCharacters = async (id: number) => {
   const ANIME_CHARACTER_URL = `https://api.jikan.moe/v4/anime/${id}/characters`
 
@@ -46,7 +49,8 @@ export const getCharacters = async (id: number) => {
 }
 
 // <------------------>
-export const searchAnimes = async (name: string, page: string = '1') => {
+// Para buscar el anime
+export const searchAnimes = async (name: string) => {
   const SEARCH_CHARACTER_URL = `https://api.jikan.moe/v4/anime?q=${name}`
   const QUERY_PARAMS = `&sfw&limit=24&type=tv&order_by=title`
 
@@ -60,7 +64,7 @@ export const searchAnimes = async (name: string, page: string = '1') => {
   return data
 }
 
-// <------------------>
+// Para obtener el anime segun el estado (airing, upcoming, complete)
 export const statusAnimes = async (status: string) => {
   const STATUS_ANIMES_URL = 'https://api.jikan.moe/v4/anime?'
   const QUERY_PARAMS = `&sfw&limit=24&status=upcoming&order_by=popularity&status=${status}`

@@ -9,6 +9,7 @@ import RatingAnime from '@/components/anime/RatingAnime'
 import InformationAnime from '@/components/anime/InformationAnime'
 import SynopsisAnime from '@/components/anime/SynopsisAnime'
 import TrailerAnime from '@/components/anime/TrailerAnime'
+import LoaderCharacters from '@/components/characters/LoaderCharacters'
 
 interface Props {
   params: { id: string }
@@ -72,7 +73,7 @@ export default async function AnimePage({ params }: Props) {
 
       <TrailerAnime trailer={trailer} />
 
-      <Suspense fallback={<div>Cargando...</div>}>
+      <Suspense fallback={<LoaderCharacters />}>
         <CardCharacters id={mal_id} />
       </Suspense>
     </Wrapper>
