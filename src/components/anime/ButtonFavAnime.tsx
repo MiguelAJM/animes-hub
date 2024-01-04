@@ -40,9 +40,10 @@ export default function ButtonFavAnime({ anime, id }: Props) {
   return (
     <button
       onClick={toggleFavAnime}
-      className='p-4 bg-light text-darkest rounded-xl'
+      className='flex-[1] md:flex-[0] w-full md:w-full flex gap-2 font-bold p-2 lg:p-4 bg-light text-darkest rounded-xl'
     >
-      {!isFavAnime ? <IconHeart className='text-red-600' size={32} /> : <IconHeartFilled className='text-red-600' size={32} />}
+      {!isFavAnime ? <IconHeart className='text-red-600' size={28} /> : <IconHeartFilled className='text-red-600' size={28} />}
+      <span className='block md:hidden'>Add to favorite</span>
     </button>
   )
 }

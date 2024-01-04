@@ -38,8 +38,8 @@ export default async function AnimePage({ params }: Props) {
 
   return (
     <Wrapper>
-      <article className='flex gap-8'>
-        <figure className='max-w-xs h-full rounded-xl overflow-hidden'>
+      <article className='flex flex-wrap md:flex-nowrap gap-8'>
+        <figure className='max-w-xs mx-auto h-full rounded-xl overflow-hidden'>
           <Image
             className='w-full h-auto object-cover aspect-9/16'
             src={images.jpg.large_image_url}
@@ -50,8 +50,8 @@ export default async function AnimePage({ params }: Props) {
         </figure>
 
         <div className='w-full'>
-          <div className='flex justify-between items-center'>
-            <h2 className='text-5xl font-light line-clamp-1 pb-1'>{title}</h2>
+          <div className='flex flex-col md:flex-row gap-4 justify-between items-center'>
+            <h2 className='text-xl md:text-2xl lg:text-5xl font-light line-clamp-1 pb-1'>{title}</h2>
             <ButtonFavAnime anime={data} id={id} />
           </div>
           <Divider styles='my-8 border-white/20' />

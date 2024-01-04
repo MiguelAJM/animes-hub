@@ -30,7 +30,7 @@ export default function HeaderAnime() {
   return (
     <header className='flex flex-col gap-8 w-full z-20'>
       <form
-        className='flex items-center gap-4 px-5 w-full rounded-full bg-lightest dark:bg-dark'
+        className='hidden md:flex items-center gap-4 px-5 w-full rounded-full bg-lightest dark:bg-dark'
         onSubmit={handleSearch}
       >
         <label htmlFor='search-input'>

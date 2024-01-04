@@ -12,6 +12,7 @@ export default async function GenresById({
   const genresId = await getGenresId(params.id)
   const { data } = genresId
 
+  // Obtener el titulo por genero
   const getGenresName = await getGenres()
   const genre = getGenresName.data.filter(
     (item) => item.mal_id === Number(params.id)
@@ -31,16 +32,16 @@ export default async function GenresById({
 
         {data.length > ITEMS && (
           <>
-            <div className='flex items-center gap-4 mb-8'>
+            <div className='flex items-center gap-2 md:gap-4 mb-4 md:mb-8'>
               <span className='text-lime-500'>
                 <IconCategory size={32} />
               </span>
               <article className='flex w-full items-center justify-between'>
-                <h2 className='text-4xl font-bold'>Genre - {genreTitle}</h2>
+                <h2 className='text-xl md:text-4xl font-bold'>{genreTitle}</h2>
                 <BackButton />
               </article>
             </div>
-            <ul className='grid grid-cols-6 gap-4'>
+            <ul className='grid grid-cols-6 gap-2 md:gap-4'>
               {data.map((item) => (
                 <CardAnime key={item.mal_id} item={item} />
               ))}

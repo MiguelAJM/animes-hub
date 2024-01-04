@@ -12,12 +12,12 @@ export default function AnimeFavorites() {
 
   return (
     <Wrapper>
-      <div className='relative w-full min-h-[calc(100vh_-_380px)]'>
+      <div className='relative w-full min-h-[calc(100vh_-_332px)]'>
         {favAnimes !== undefined && (
           <>
             {favAnimes.length === ITEMS && (
               <article className='absolute w-full h-full grid place-content-center'>
-                <h2 className='text-6xl font-bold'>
+                <h2 className='text-xl md:text-6xl font-bold'>
                   Your favorites list are empty.
                 </h2>
               </article>

@@ -19,7 +19,7 @@ export default function NavLinks() {
           pathname === item.url
             ? 'bg-light text-darkest'
             : 'bg-darkest text-lightest'
-        } p-3 rounded-xl`} key={item.name} href={item.url}>
+        } p-2 lg:p-3 rounded-xl`} key={item.name} href={item.url}>
           <item.icon size={24} />
         </Link>
       ))}

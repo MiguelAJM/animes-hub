@@ -11,7 +11,7 @@ export default function CardAnime({ item }: Props) {
   return (
     <Link
       href={`/anime/${mal_id}`}
-      className='relative w-full h-auto rounded-xl overflow-hidden'
+      className='col-span-3 md:col-span-2 lg:col-span-1 relative w-full h-auto rounded-xl overflow-hidden'
     >
       <Image
         className='aspect-9/16 w-full object-cover'
