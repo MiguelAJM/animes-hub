@@ -25,7 +25,7 @@ export default async function GenresById({
       <div className='relative w-full min-h-[calc(100vh_-_380px)]'>
         {data.length === ITEMS && (
           <article className='absolute w-full h-full grid place-content-center'>
-            <h2 className='text-6xl font-bold'>Your favorite list are empty</h2>
+            <h2 className='text-6xl font-bold'>There are no animes for this genre</h2>
           </article>
         )}
 
