@@ -26,12 +26,12 @@ export default function AnimeFavorites() {
             {favAnimes.length > ITEMS && (
               <>
                 <MainTitleAnime
-                  title='Genres'
+                  title='Favorites'
                   IconTitle={<IconHeartFilled size={32} />}
                   iconColor='text-red-500'
                   button={false}
                 />
-                <ul className='grid grid-cols-6 gap-4'>
+                <ul className='grid grid-cols-6 gap-4 mt-4 md:mt-8'>
                   {favAnimes.map((item) => {
                     return <CardAnime key={item.mal_id} item={item} />
                   })}
