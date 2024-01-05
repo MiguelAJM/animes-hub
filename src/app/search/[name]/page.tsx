@@ -1,7 +1,6 @@
 import { searchAnimes } from '@/utils/services/getAnimes'
 import CardAnime from '@/components/characters/CardAnime'
 import Wrapper from '@/components/Wrapper'
-import NavAnime from '@/components/anime/NavAnime'
 
 interface Props {
   params: { name: string }
