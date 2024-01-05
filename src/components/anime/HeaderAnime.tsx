@@ -39,6 +39,7 @@ export default function HeaderAnime() {
         <input
           className='bg-transparent py-4 dark:text-lightest w-full outline-none'
           type='text'
+          autoComplete='off'
           id='search-input'
           placeholder='Search a anime'
           value={anime}
