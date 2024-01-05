@@ -23,7 +23,7 @@ export default async function AnimePagination({
           button={true}
           pagination={<ButtonPage data={animes} />}
         />
-        <ul className='grid grid-cols-6 gap-4'>
+        <ul className='grid grid-cols-6 gap-4  mt-4 md:mt-8'>
           {data.map((item) => (
             <CardAnime key={item.mal_id} item={item} />
           ))}
