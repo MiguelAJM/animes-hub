@@ -2,6 +2,7 @@
 
 Search your favorite animes and save them to watch later
 
-# Mockups
+# Thumbnails
+![Mockup-3](https://github.com/MiguelAJM/animes-app/blob/main/public/Thumbnail-1.png)
 
 
