@@ -8,9 +8,7 @@ export const getAnimes = async (page: string = '1') => {
   const ANIMES_URL = 'https://api.jikan.moe/v4/anime?'
   const QUERY_PARAMS = `&sfw&limit=24&type=tv&status=upcoming&start_date=2015-01-01&page=${page}`
 
-  const res = await fetch(`${ANIMES_URL}${QUERY_PARAMS}`, {
-    next: { revalidate: 604800 }
-  })
+  const res = await fetch(`${ANIMES_URL}${QUERY_PARAMS}`)
   const data = (await res.json()) as Animes
 
   if (!res.ok) {
@@ -56,9 +54,7 @@ export const searchAnimes = async (name: string) => {
   const SEARCH_CHARACTER_URL = `https://api.jikan.moe/v4/anime?q=${name}`
   const QUERY_PARAMS = `&sfw&limit=24&type=tv&order_by=title&start_date=2015-01-01`
 
-  const res = await fetch(`${SEARCH_CHARACTER_URL}${QUERY_PARAMS}`, {
-    next: { revalidate: 604800 }
-  })
+  const res = await fetch(`${SEARCH_CHARACTER_URL}${QUERY_PARAMS}`)
   const data = (await res.json()) as Animes
 
   if (!res.ok) {
@@ -74,9 +70,7 @@ export const statusAnimes = async (status: string) => {
   const STATUS_ANIMES_URL = 'https://api.jikan.moe/v4/anime?'
   const QUERY_PARAMS = `&sfw&limit=24&status=upcoming&order_by=popularity&status=${status}`
 
-  const res = await fetch(`${STATUS_ANIMES_URL}${QUERY_PARAMS}`, {
-    next: { revalidate: 604800 }
-  })
+  const res = await fetch(`${STATUS_ANIMES_URL}${QUERY_PARAMS}`)
   const data = (await res.json()) as Animes
 
   if (!res.ok) {
