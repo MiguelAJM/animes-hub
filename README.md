@@ -1,4 +1,4 @@
-# Anime App
+# Anime Hub
 
 Search your favorite animes and save them to watch later
 
