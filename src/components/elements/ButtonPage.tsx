@@ -4,7 +4,7 @@ import { useRouter } from 'next/navigation'
 import { useEffect, useState } from 'react'
 
 interface Props {
-  data: Animes
+  data: Promise<Animes>
 }
 
 export default function ButtonPage({ data }: Props) {

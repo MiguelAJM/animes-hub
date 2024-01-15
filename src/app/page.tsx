@@ -1,13 +1,14 @@
-import { getAnimes } from '@/utils/services/getAnimes'
 import { IconList } from '@tabler/icons-react'
+import { getAnimesAction } from '@/utils/actions/getAnimesAction'
+import { Data } from '@/interfaces/animes'
 import CardAnime from '@/components/characters/CardAnime'
 import Wrapper from '@/components/Wrapper'
-import ButtonPage from '@/components/elements/ButtonPage'
 import MainTitleAnime from '@/components/anime/MainTitleAnime'
+import LoadMoreAnimes from '@/components/anime/LoadMoreAnimex'
 
 export default async function Home() {
-  const animes = await getAnimes()
-  const { data } = animes
+  const animes = await getAnimesAction(1)
+  const lastPagination = animes.pagination.last_visible_page
 
   return (
     <Wrapper>
@@ -15,14 +16,14 @@ export default async function Home() {
         title='Animes'
         IconTitle={<IconList size={32} />}
         iconColor='text-yellow-500'
-        button={true}
-        pagination={<ButtonPage data={animes} />}
+        button={false}
       />
       <ul className='grid grid-cols-6 gap-4'>
-        {data.map((item) => (
+        {animes.data.map((item: Data) => (
           <CardAnime key={item.mal_id} item={item} />
         ))}
       </ul>
+      <LoadMoreAnimes lastPage={lastPagination} />
     </Wrapper>
   )
 }
