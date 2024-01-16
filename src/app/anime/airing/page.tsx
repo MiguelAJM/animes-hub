@@ -1,12 +1,11 @@
-import { statusAnimes } from '@/utils/services/getAnimes'
 import { IconPlayerPlay } from '@tabler/icons-react'
-import CardAnime from '@/components/characters/CardAnime'
+import { getStatusAnimesAction } from '@/utils/actions/getAnimesStatusAction'
 import Wrapper from '@/components/Wrapper'
 import MainTitleAnime from '@/components/anime/MainTitleAnime'
+import LoadMoreAnimesAiring from '@/components/loadmore/LoadMoreAnimesAiring'
 
 export default async function AnimesAiring() {
-  const animes = await statusAnimes('airing')
-  const { data } = animes
+  const data = await getStatusAnimesAction('airing', 1)
 
   return (
     <Wrapper>
@@ -17,10 +16,9 @@ export default async function AnimesAiring() {
         button={false}
       />
       <ul className='grid grid-cols-6 gap-4'>
-        {data.map((item) => (
-          <CardAnime key={item.mal_id} item={item} />
-        ))}
+        {data}
       </ul>
+      <LoadMoreAnimesAiring />
     </Wrapper>
   )
 }
