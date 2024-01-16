@@ -9,14 +9,16 @@ export default async function Home() {
 
   return (
     <Wrapper>
-      <MainTitleAnime
-        title='Animes'
-        IconTitle={<IconList size={32} />}
-        iconColor='text-yellow-500'
-        button={false}
-      />
-      <ul className='grid grid-cols-6 gap-4'>{data}</ul>
-      <LoadMoreAnimes />
+      <div className='flex flex-col flex-1 gap-4 my-4'>
+        <MainTitleAnime
+          title='Animes'
+          IconTitle={<IconList size={32} />}
+          iconColor='text-yellow-500'
+          button={false}
+        />
+        <ul className='grid grid-cols-6 gap-4'>{data}</ul>
+        <LoadMoreAnimes />
+      </div>
     </Wrapper>
   )
 }

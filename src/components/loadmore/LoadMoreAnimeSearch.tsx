@@ -4,18 +4,21 @@
 import { useEffect, useState } from 'react'
 import { Bars } from 'react-loader-spinner'
 import { useInView } from 'react-intersection-observer'
-import { getAnimesAction } from '@/utils/actions/getAnimesAction'
+import { getAnimeSearchAction } from '@/utils/actions/getAnimesAction'
+import { useParams } from 'next/navigation'
 
 type DataProps = JSX.Element
 
-export default function LoadMoreAnimes() {
+export default function LoadMoreAnimeSearch() {
   const { ref, inView } = useInView()
   const [data, setData] = useState<DataProps[]>([])
   const [page, setPage] = useState(2)
 
+  const { name } = useParams<{ name: string }>()
+
   useEffect(() => {
     if (inView) {
-      getAnimesAction(page).then((res) => {
+      getAnimeSearchAction(name, page).then((res) => {
         setData([...data, ...res])
         setPage(page + 1)
       })
@@ -26,7 +29,8 @@ export default function LoadMoreAnimes() {
 
   return (
     <>
-      <ul className='grid grid-cols-6 gap-4'>{data}</ul>
+      <ul className='grid grid-cols-6 gap-4 mb-5'>{data}</ul>
+
       {!totalItems && (
         <div ref={ref} className='w-full flex justify-center'>
           <Bars

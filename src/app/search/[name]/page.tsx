@@ -1,22 +1,20 @@
-import { searchAnimes } from '@/utils/services/getAnimes'
-import CardAnime from '@/components/characters/CardAnime'
 import Wrapper from '@/components/Wrapper'
+import LoadMoreAnimeSearch from '@/components/loadmore/LoadMoreAnimeSearch'
+import { getAnimeSearchAction } from '@/utils/actions/getAnimesAction'
 
-interface Props {
+export default async function AnimeResults({
+  params
+}: {
   params: { name: string }
-}
+}) {
+  const animeName = params.name
+  const data = await getAnimeSearchAction(animeName, 1)
 
-export default async function AnimeResults({ params }: Props) {
-  const animes = await searchAnimes(params.name)
-  const { data } = animes
   return (
     <Wrapper>
-      <div className='w-full min-h-[calc(100vh_-_332px)] md:min-h-[calc(100vh_-_380px)]'>
-        <ul className='grid grid-cols-6 gap-4'>
-          {data.map((item, index) => (
-            <CardAnime key={item.mal_id} item={item} index={index} />
-          ))}
-        </ul>
+      <div className='flex flex-col flex-1 gap-4 my-4'>
+        <ul className='grid grid-cols-6 gap-2 md:gap-4'>{data}</ul>
+        <LoadMoreAnimeSearch />
       </div>
     </Wrapper>
   )

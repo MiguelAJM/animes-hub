@@ -22,14 +22,13 @@ export default function RootLayout({
     <html className='dark' lang='en'>
       <Toaster position='top-center' richColors />
       <body
-        className={`${lato.className} relative bg-lightest dark:bg-black text-darkest dark:text-lightest`}
+        className={`${lato.className} relative bg-lightest dark:bg-darkest text-darkest dark:text-lightest`}
       >
         <main className='relative flex flex-col md:justify-between container mx-auto transition-all duration-300 ease-in-out min-h-[calc(100vh_-_80px)] md:min-h-[calc(100vh_-_64px)] px-2.5 md:px-8 md:py-8'>
           <Sidebar />
           {children}
-          <FooterAnime />
         </main>
-      <MobileNav />
+        <MobileNav />
       </body>
     </html>
   )

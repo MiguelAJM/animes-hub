@@ -38,44 +38,48 @@ export default async function AnimePage({ params }: Props) {
 
   return (
     <Wrapper>
-      <article className='flex flex-wrap md:flex-nowrap gap-8'>
-        <figure className='max-w-xs mx-auto h-full rounded-xl overflow-hidden'>
-          <Image
-            className='w-full h-auto object-cover aspect-9/16'
-            src={images.jpg.large_image_url}
-            alt={title}
-            width={128}
-            height={128}
-          />
-        </figure>
+      <div className='flex flex-col flex-1 gap-5 my-8'>
+        <article className='flex flex-wrap md:flex-nowrap gap-8'>
+          <figure className='max-w-xs mx-auto h-full rounded-xl overflow-hidden'>
+            <Image
+              className='w-full h-auto object-cover aspect-9/16'
+              src={images.jpg.large_image_url}
+              alt={title}
+              width={128}
+              height={128}
+            />
+          </figure>
 
-        <div className='w-full'>
-          <div className='flex flex-col md:flex-row gap-4 justify-between items-center'>
-            <h2 className='text-xl md:text-2xl lg:text-5xl font-light text-balance pb-1'>{title}</h2>
-            <ButtonFavAnime anime={data} id={id} />
+          <div className='w-full'>
+            <div className='flex flex-col md:flex-row gap-4 justify-between items-center'>
+              <h2 className='text-xl md:text-2xl lg:text-5xl font-light text-balance pb-1'>
+                {title}
+              </h2>
+              <ButtonFavAnime anime={data} id={id} />
+            </div>
+            <Divider styles='my-8 border-white/20' />
+
+            <RatingAnime score={score} />
+            <InformationAnime
+              status={status}
+              duration={duration}
+              year={year}
+              rank={rank}
+              members={members}
+              popularity={popularity}
+            />
+
+            <Divider styles='my-8 border-white/20' />
+            <SynopsisAnime synopsis={synopsis} />
           </div>
-          <Divider styles='my-8 border-white/20' />
+        </article>
 
-          <RatingAnime score={score} />
-          <InformationAnime
-            status={status}
-            duration={duration}
-            year={year}
-            rank={rank}
-            members={members}
-            popularity={popularity}
-          />
+        <TrailerAnime trailer={trailer} />
 
-          <Divider styles='my-8 border-white/20' />
-          <SynopsisAnime synopsis={synopsis} />
-        </div>
-      </article>
-
-      <TrailerAnime trailer={trailer} />
-
-      <Suspense fallback={<LoaderCharacters />}>
-        <CardCharacters id={mal_id} />
-      </Suspense>
+        <Suspense fallback={<LoaderCharacters />}>
+          <CardCharacters id={mal_id} />
+        </Suspense>
+      </div>
     </Wrapper>
   )
 }

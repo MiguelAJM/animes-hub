@@ -1,16 +1,18 @@
-import { getGenres, getGenresId } from '@/utils/services/getGenres'
+import { getGenres } from '@/utils/services/getGenres'
 import { IconCategory } from '@tabler/icons-react'
+import { getGenresAction } from '@/utils/actions/getGenresAction'
 import Wrapper from '@/components/Wrapper'
-import CardAnime from '@/components/characters/CardAnime'
 import BackButton from '@/components/genres/BackButton'
+import LoadMoreAnimeGenres from '@/components/loadmore/LoadMoreAnimeGenres'
 
 export default async function GenresById({
   params
 }: {
   params: { id: string }
 }) {
-  const genresId = await getGenresId(params.id)
-  const { data } = genresId
+  const genreId = params.id
+  const page = 1
+  const data = await getGenresAction(genreId, page)
 
   // Obtener el titulo por genero
   const getGenresName = await getGenres()
@@ -23,7 +25,7 @@ export default async function GenresById({
 
   return (
     <Wrapper>
-      <div className='relative w-full min-h-[calc(100vh_-_380px)]'>
+      <div className='relative flex flex-col flex-1 gap-4 my-4'>
         {data.length === ITEMS && (
           <article className='absolute w-full h-full grid place-content-center'>
             <h2 className='text-6xl font-bold'>
@@ -33,22 +35,19 @@ export default async function GenresById({
         )}
 
         {data.length > ITEMS && (
-          <>
-            <div className='flex items-center gap-2 md:gap-4 mb-4 md:mb-8'>
+          <div className='flex flex-col gap-2 md:gap-4'>
+            <div className='flex items-center gap-2 md:gap-4'>
               <span className='text-lime-500'>
                 <IconCategory size={32} />
               </span>
               <article className='flex w-full items-center justify-between'>
-                <h2 className='text-xl md:text-4xl font-bold'>{genreTitle}</h2>
+                <h2 className='text-xl md:text-2xl font-bold'>{genreTitle}</h2>
                 <BackButton />
               </article>
             </div>
-            <ul className='grid grid-cols-6 gap-2 md:gap-4'>
-              {data.map((item, index) => (
-                <CardAnime key={item.mal_id} item={item} index={index} />
-              ))}
-            </ul>
-          </>
+            <ul className='grid grid-cols-6 gap-2 md:gap-4'>{data}</ul>
+            <LoadMoreAnimeGenres />
+          </div>
         )}
       </div>
     </Wrapper>
