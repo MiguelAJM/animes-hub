@@ -26,7 +26,7 @@ export default function LoadMoreAnimesComplete() {
 
   return (
     <>
-      <ul className='grid grid-cols-6 gap-4'>{data}</ul>
+      <ul className='grid grid-cols-6 gap-2 md:gap-4'>{data}</ul>
 
       {!totalItems && (
         <div ref={ref} className='w-full flex justify-center'>
