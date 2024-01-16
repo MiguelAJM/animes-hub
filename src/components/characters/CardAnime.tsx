@@ -18,7 +18,7 @@ export default function CardAnime({ item, index }: Props) {
 
   return (
     <MotionDiv
-      className='col-span-3 md:col-span-2 lg:col-span-1 relative w-full h-auto rounded-xl overflow-hidden'
+      className='col-span-3 md:col-span-2 lg:col-span-1 relative w-full h-auto rounded-xl overflow-hidden group/img'
       variants={variants}
       initial='hidden'
       animate='visible'
@@ -31,7 +31,7 @@ export default function CardAnime({ item, index }: Props) {
     >
       <Link href={`/anime/${mal_id}`}>
         <Image
-          className='aspect-9/16 w-full object-cover'
+          className='aspect-9/16 w-full object-cover ease-in-out duration-300 transition-transform group-hover/img:scale-110'
           src={images.jpg.large_image_url}
           alt={title}
           width={128}

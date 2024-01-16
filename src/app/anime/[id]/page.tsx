@@ -24,7 +24,6 @@ export default async function AnimePage({ params }: Props) {
     title,
     synopsis,
     images,
-    type,
     mal_id,
     trailer,
     score,

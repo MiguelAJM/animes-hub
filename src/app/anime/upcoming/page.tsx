@@ -16,7 +16,7 @@ export default async function AnimesUpcoming() {
           iconColor='text-lime-500'
           button={false}
         />
-        <ul className='grid grid-cols-6 gap-4'>{data}</ul>
+        <ul className='grid grid-cols-6 gap-2 md:gap-4'>{data}</ul>
         <LoadMoreAnimesUpcoming />
       </div>
     </Wrapper>
