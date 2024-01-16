@@ -26,7 +26,9 @@ export default async function GenresById({
       <div className='relative w-full min-h-[calc(100vh_-_380px)]'>
         {data.length === ITEMS && (
           <article className='absolute w-full h-full grid place-content-center'>
-            <h2 className='text-6xl font-bold'>There are no animes for this genre</h2>
+            <h2 className='text-6xl font-bold'>
+              There are no animes for this genre
+            </h2>
           </article>
         )}
 
@@ -42,8 +44,8 @@ export default async function GenresById({
               </article>
             </div>
             <ul className='grid grid-cols-6 gap-2 md:gap-4'>
-              {data.map((item) => (
-                <CardAnime key={item.mal_id} item={item} />
+              {data.map((item, index) => (
+                <CardAnime key={item.mal_id} item={item} index={index} />
               ))}
             </ul>
           </>
