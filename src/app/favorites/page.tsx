@@ -32,8 +32,10 @@ export default function AnimeFavorites() {
                   button={false}
                 />
                 <ul className='grid grid-cols-6 gap-4 mt-4 md:mt-8'>
-                  {favAnimes.map((item) => {
-                    return <CardAnime key={item.mal_id} item={item} />
+                  {favAnimes.map((item, index) => {
+                    return (
+                      <CardAnime key={item.mal_id} item={item} index={index} />
+                    )
                   })}
                 </ul>
               </>
