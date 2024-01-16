@@ -51,7 +51,7 @@ export default async function AnimePage({ params }: Props) {
 
         <div className='w-full'>
           <div className='flex flex-col md:flex-row gap-4 justify-between items-center'>
-            <h2 className='text-xl md:text-2xl lg:text-5xl font-light line-clamp-1 pb-1'>{title}</h2>
+            <h2 className='text-xl md:text-2xl lg:text-5xl font-light text-balance pb-1'>{title}</h2>
             <ButtonFavAnime anime={data} id={id} />
           </div>
           <Divider styles='my-8 border-white/20' />

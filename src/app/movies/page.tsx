@@ -17,8 +17,8 @@ export default async function MoviesAnime() {
         button={false}
       />
       <ul className='grid grid-cols-6 gap-4'>
-        {data.map((item) => (
-          <CardAnime key={item.mal_id} item={item} />
+        {data.map((item, index) => (
+          <CardAnime key={item.mal_id} item={item} index={index}/>
         ))}
       </ul>
     </Wrapper>
