@@ -25,7 +25,7 @@ export default async function GenresById({
 
   return (
     <Wrapper>
-      <div className='relative flex flex-col flex-1 gap-4 my-4'>
+      <div className='relative flex flex-col flex-1 gap-2 md:gap-4 my-5'>
         {data.length === ITEMS && (
           <article className='absolute w-full h-full grid place-content-center'>
             <h2 className='text-6xl font-bold'>

@@ -1,6 +1,6 @@
+import { getAnimeSearchAction } from '@/utils/actions/getAnimesAction'
 import Wrapper from '@/components/Wrapper'
 import LoadMoreAnimeSearch from '@/components/loadmore/LoadMoreAnimeSearch'
-import { getAnimeSearchAction } from '@/utils/actions/getAnimesAction'
 
 export default async function AnimeResults({
   params
@@ -12,7 +12,7 @@ export default async function AnimeResults({
 
   return (
     <Wrapper>
-      <div className='flex flex-col flex-1 gap-4 my-4'>
+      <div className='flex flex-col flex-1 gap-2 md:gap-4 my-5'>
         <ul className='grid grid-cols-6 gap-2 md:gap-4'>{data}</ul>
         <LoadMoreAnimeSearch />
       </div>

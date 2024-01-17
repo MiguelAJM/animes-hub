@@ -9,7 +9,7 @@ export default async function AnimesUpcoming() {
 
   return (
     <Wrapper>
-      <div className='flex flex-col flex-1 gap-5 my-5'>
+      <div className='flex flex-col flex-1 gap-2 md:gap-4 my-5'>
         <MainTitleAnime
           title='Upcoming Animes'
           IconTitle={<IconNews size={32} />}

@@ -14,7 +14,7 @@ export default function AnimeFavorites() {
 
   return (
     <Wrapper>
-      <div className='relative flex flex-col flex-1 gap-4 my-4'>
+      <div className='relative flex flex-col flex-1 gap-2 md:gap-4 my-5'>
         {noFavAnimes && favAnimes.length === ITEMS && (
           <article className='absolute w-full h-full grid place-content-center'>
             <h2 className='text-xl md:text-6xl font-bold'>

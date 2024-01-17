@@ -1,7 +1,6 @@
 import type { Metadata } from 'next'
 import { Lato } from 'next/font/google'
 import { Toaster } from 'sonner'
-import FooterAnime from '@/components/anime/FooterAnime'
 import './globals.css'
 import Sidebar from '@/components/navbars/Sidebar'
 import MobileNav from '@/components/navbars/MobileNav'

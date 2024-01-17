@@ -9,7 +9,7 @@ export default async function page() {
 
   return (
     <Wrapper>
-      <div className='flex flex-col flex-1 gap-4 my-4'>
+      <div className='flex flex-col flex-1 gap-2 md:gap-4 my-5'>
         <MainTitleAnime
           title='Genres'
           IconTitle={<IconCategory size={32} />}

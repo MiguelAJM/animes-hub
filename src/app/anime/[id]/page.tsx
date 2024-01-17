@@ -37,7 +37,7 @@ export default async function AnimePage({ params }: Props) {
 
   return (
     <Wrapper>
-      <div className='flex flex-col flex-1 gap-5 my-8'>
+      <div className='flex flex-col flex-1 gap-2 md:gap-4 my-8'>
         <article className='flex flex-wrap md:flex-nowrap gap-8'>
           <figure className='max-w-xs mx-auto h-full rounded-xl overflow-hidden'>
             <Image
